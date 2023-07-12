@@ -1,5 +1,4 @@
 ﻿function mostrarModal() {
-/*    debugger;*/
     var modal = document.getElementById('myModal');
     $(modal).modal('show');
 }
@@ -13,7 +12,6 @@ const utils = {
 
 const create = {
     init: () => {
-        //declarar componentes
         create.componentes = {
             cuil: $('#cuil'),
             ApellidoYNombre: $('#ApellidoYNombre'),
@@ -21,7 +19,6 @@ const create = {
             botonAgregar: $('#botonAgregar'),
             UrlPostPersonas: $('#UrlPostPersonas')
         };
-        //Asignar Eventos
         create.componentes.botonAgregar.on('click', create.acciones.botonClick)
     },
     componentes: {
