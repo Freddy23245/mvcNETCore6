@@ -1,0 +1,46 @@
+﻿@model List<PersonaViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron">
+
+    <form method="post" asp-action="Index" asp-controller="Home" class="form-inline text-center">
+        <div class="form-group mb-2">
+            <input type="text" class="form-control" name="ApellidoYNombre" placeholder="Buscar" />
+        </div>
+        <button type="submit" class="btn btn-primary mb-4">Buscar</button>
+    </form>
+    <a href="@Url.Action("Create","Home")" class="btn btn-success mb-3">Agregar</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+
+                    <th>Cuil</th>
+                    <th>Apellido y Nombre</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Cuil</td>
+                        <td>@item.ApellidoYNombre</td>
+                        <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("Detalle", "Home", new { id = item.id})" class="btn btn-primary">Ver detalle</a>
+
+                        </td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
