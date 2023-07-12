@@ -8,6 +8,7 @@ namespace ProyectoMvc.Models
         public int id { get; set; }
         public string Cuil { get; set; }
         public string ApellidoYNombre { get; set; }
+        [Required]
         public DateTime FechaNacimiento { get; set; }
 
         public static explicit operator Persona(PersonaViewModel model)
