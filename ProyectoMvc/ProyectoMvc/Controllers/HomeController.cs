@@ -32,6 +32,7 @@ namespace ProyectoMvc.Controllers
         public IActionResult Detalle(int id)
         {
             var personaSeleccionada = _sessioData.Personas.FirstOrDefault(x => x.id == id);
+            _sessioData.PersonaSeleccionada = personaSeleccionada;
             return View(personaSeleccionada);
         }
         public IActionResult Create()
@@ -58,6 +59,7 @@ namespace ProyectoMvc.Controllers
         public IActionResult Privacy()
         {
             var valor = _sessioData.Personas;
+            var persec = _sessioData.PersonaSeleccionada;
             return View();
         }
 

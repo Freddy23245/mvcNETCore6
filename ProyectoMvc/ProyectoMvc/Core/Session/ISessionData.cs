@@ -6,5 +6,6 @@ namespace ProyectoMvc.Core.Session
     {
         List<PersonaViewModel> Personas { get;set; }
         string ValorString { get;set; }
+        PersonaViewModel PersonaSeleccionada { get; set; }
     }
 }
