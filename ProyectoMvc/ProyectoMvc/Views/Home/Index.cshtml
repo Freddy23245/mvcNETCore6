@@ -29,7 +29,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@String.Format($"{item.Cuil.Substring(0, 2)}-{item.Cuil.Substring(2, 8)}-{item.Cuil.Substring(10)}")</td>
+                        <td>@item.Cuil</td>
                         <td>@item.ApellidoYNombre</td>
                         <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
                         <td>

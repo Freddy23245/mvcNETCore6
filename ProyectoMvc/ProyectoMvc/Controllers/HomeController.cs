@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoMvc.Core;
+using ProyectoMvc.Core.Session;
 using ProyectoMvc.Models;
 using ProyectoMvc.Services.Interfaces;
 using ProyectoMvc.Services.Mappers;
@@ -10,10 +11,13 @@ namespace ProyectoMvc.Controllers
     public class HomeController : Controller
     {
         private readonly IEjemploService _ejemploService;
-
-        public HomeController(IEjemploService ejemploService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ISessionData _sessioData;
+        public HomeController(IEjemploService ejemploService, IHttpContextAccessor httpContextAccessor,ISessionData sessionData)
         {
             _ejemploService = ejemploService;
+            _httpContextAccessor = httpContextAccessor;
+            _sessioData = sessionData;
         }
 
         public IActionResult Index( string ApellidoYNombre = null)
@@ -21,14 +25,13 @@ namespace ProyectoMvc.Controllers
             if (string.IsNullOrEmpty(ApellidoYNombre))
                 ApellidoYNombre = null;
             var personas = _ejemploService.ObtenerPersona(ApellidoYNombre);
-        
+            _sessioData.Personas = personas;
             return View(personas);
         }
 
         public IActionResult Detalle(int id)
         {
-            var personas = _ejemploService.ObtenerPersona(null);
-            var personaSeleccionada = personas.FirstOrDefault(x => x.id == id);
+            var personaSeleccionada = _sessioData.Personas.FirstOrDefault(x => x.id == id);
             return View(personaSeleccionada);
         }
         public IActionResult Create()
@@ -54,6 +57,7 @@ namespace ProyectoMvc.Controllers
         }
         public IActionResult Privacy()
         {
+            var valor = _sessioData.Personas;
             return View();
         }
 
