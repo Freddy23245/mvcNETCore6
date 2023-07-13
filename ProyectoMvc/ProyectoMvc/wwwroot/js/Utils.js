@@ -8,14 +8,6 @@
 
 }
 function ModalEliminar() {
-    /*    debugger;*/
     var modal = document.getElementById('myModal');
     $(modal).modal('show');
 }
-//$(function () {
-//    debugger;
-//    $('#OpenModal').click(function () {
-
-//        $('#myModal').modal('show');
-//    })
-//})
