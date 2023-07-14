@@ -48,11 +48,13 @@ namespace ProyectoMvc.Controllers
         [HttpPost]
         public IActionResult ModificarPersona(PersonaViewModel persona)
         {
+            persona.id = _sessioData.PersonaSeleccionada.id;
             _ejemploService.ModificarPersona(persona);
             return RedirectToAction(nameof(Index));
         }
         public IActionResult Eliminar(PersonaViewModel persona)
         {
+            persona.id = _sessioData.PersonaSeleccionada.id;
             _ejemploService.EliminarPersona(persona);
             return RedirectToAction(nameof(Index));
         }
@@ -60,6 +62,7 @@ namespace ProyectoMvc.Controllers
         {
             var valor = _sessioData.Personas;
             var persec = _sessioData.PersonaSeleccionada;
+            var idPersona = _sessioData.PersonaSeleccionada.id;
             return View();
         }
 
