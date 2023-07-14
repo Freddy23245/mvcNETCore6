@@ -1,4 +1,4 @@
-﻿function mostrarModal() {
+﻿function mostrarModalUpdate() {
     var modal = document.getElementById('myModalUpdate');
     $(modal).modal('show');
 }
@@ -39,7 +39,7 @@ const update = {
             console.log(model);
             utils1.ajaxPost(url, model,
                 (data) => {
-                    mostrarModal();
+                    mostrarModalUpdate();
                 }
 
             );

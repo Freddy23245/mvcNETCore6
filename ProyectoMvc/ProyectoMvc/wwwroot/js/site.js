@@ -42,6 +42,7 @@ const create = {
             console.log(model);
             utils.ajaxPost(url, model,
                 (data) => {
+                    
                     mostrarModal();
                 }
 

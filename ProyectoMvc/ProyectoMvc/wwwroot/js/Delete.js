@@ -25,17 +25,12 @@ const del = {
         botonClick: () => {
             const url = del.componentes.UrlPostPersonas.val();
             const model = {
-                //persona: {
-                //    cuil: update.componentes.cuil.val(),
-                //    ApellidoYNombre: update.componentes.ApellidoYNombre.val()
-                //}
-
+ 
             };
             console.log(model);
             utils2.ajaxPost(url, model,
                 (data) => {
                    
-               
                 }
 
             );
