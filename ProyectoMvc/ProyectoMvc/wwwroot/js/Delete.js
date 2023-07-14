@@ -1,5 +1,4 @@
-﻿
-const utils2 = {
+﻿const utils2 = {
     ajaxPost: (url, model, callback, callbackError) => {
         $.post(url, model)
             .done(callback)
@@ -10,7 +9,7 @@ const utils2 = {
 const del = {
     init: () => {
         del.componentes = {
-       
+
             btnID: $('#btnID'),
             UrlPostPersonas: $('#UrlPostPersonasD')
         };
@@ -19,18 +18,18 @@ const del = {
     },
     componentes: {
         btnID: undefined,
-        UrlPostPersonas:undefined
+        UrlPostPersonas: undefined
     },
     acciones: {
         botonClick: () => {
             const url = del.componentes.UrlPostPersonas.val();
             const model = {
- 
+
             };
             console.log(model);
             utils2.ajaxPost(url, model,
                 (data) => {
-                   
+
                 }
 
             );
