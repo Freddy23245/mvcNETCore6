@@ -11,3 +11,6 @@ function ModalEliminar() {
     var modal = document.getElementById('myModal');
     $(modal).modal('show');
 }
+$("#hide").click(function () {
+    $("#myModal").modal("hide");
+});
